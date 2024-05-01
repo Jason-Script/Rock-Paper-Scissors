@@ -1,29 +1,60 @@
-function getComputerChoice(computerChoice) {
-    computerChoice = Math.floor(Math.random() * 100);
+let playerScore = 0;
+let computerScore = 0;
+
+function getComputerChoice() {
+    let computerChoice = Math.floor(Math.random() * 100);
     if (computerChoice <= 32) {
-        computerChoice = "Rock";
+        computerChoice = "rock";
         return computerChoice;
     } else if (computerChoice <= 66 && computerChoice>= 33) {
-        computerChoice = "Paper";
+        computerChoice = "paper";
         return computerChoice;
     } else {
-        computerChoice = "Scissors";
+        computerChoice = "scissors";
         return computerChoice;
     }
 }
 
-function getHumanChoice(playerChoice) {
-    playerChoice = prompt("Rock, Paper, or Scissors?");
-    if (playerChoice === "Rock" || playerChoice === "rock") {
-        playerChoice = "Rock";
-        return playerChoice;
-    } else if (playerChoice === "Paper" || playerChoice === "paper") {
-        playerChoice = "Paper";
-        return playerChoice;
-    } else if (playerChoice === "Scissors" || playerChoice === "scissors") {
-        playerChoice = "Scissors";
-        return playerChoice;
+function getPlayerChoice() {
+    let playerChoice = prompt("Rock, Paper, or Scissors?");
+    if (playerChoice.toLowerCase() === "rock"
+    || playerChoice.toLowerCase() === "paper"
+    || playerChoice.toLowerCase() === "scissors") {
+        return playerChoice.toLowerCase();
     } else {
-        alert("Illegal move! Please try again.");
+        alert("Invalid move! Please try again.");
     }
+}
+
+function playRound() {
+    let computerChoice = getComputerChoice();
+    let playerChoice = getPlayerChoice();
+    
+    console.log("The computer has chosen " + computerChoice);
+    console.log("You have chosen " + playerChoice);
+
+    if (computerChoice === playerChoice) {
+        console.log("Draw!");
+    } else if 
+        (  computerChoice === "rock" && playerChoice === "scissors"
+        || computerChoice === "paper" && playerChoice === "rock"
+        || computerChoice === "scissors" && playerChoice === "paper"
+        ) {
+        console.log("You lost!")
+        computerScore++;
+        console.log("Computer score: " + computerScore);
+    } else if (playerChoice == undefined) {
+        console.log("You have chosen an invalid move, please try again.");
+    } else {
+        console.log("You win!");
+        playerScore++;
+        console.log("Your score is now: " + playerScore);
+    }
+    }
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
+    (playerScore > computerScore) ? console.log("The score is " + playerScore + " to " + computerScore + ", you have won the match!") : console.log("The score is " + playerScore + " to " + computerScore + ", you have lost the match!");
 }
