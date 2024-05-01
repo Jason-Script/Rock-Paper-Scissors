@@ -60,10 +60,13 @@ function playGame() {
         playRound();
     }
     if (playerScore > computerScore) {
-        console.log("The score is " + playerScore + " to " + computerScore + ", you have won the match!");
+        console.log("The score is " + playerScore + " to " + computerScore +
+         ", you have won the match!");
     } else if (playerScore < computerScore) {
-        console.log("The score is " + playerScore + " to " + computerScore + ", you have lost the match!");
+        console.log("The score is " + playerScore + " to " + computerScore +
+         ", you have lost the match!");
     } else {
-        console.log("The score is " + playerScore + " to " + computerScore + ", the match is a draw!");
+        console.log("The score is " + playerScore + " to " + computerScore +
+         ", the match is a draw!");
     }
 }
