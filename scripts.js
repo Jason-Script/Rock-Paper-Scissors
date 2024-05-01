@@ -1,17 +1,29 @@
-function getComputerChoice() {
-    let choice = Math.floor(Math.random() * 100);
-    if (choice <= 32) {
-        choice = "Rock";
-        return choice;
-    } else if (choice <= 66 && choice >= 33) {
-        choice = "Paper";
-        return choice;
+function getComputerChoice(computerChoice) {
+    computerChoice = Math.floor(Math.random() * 100);
+    if (computerChoice <= 32) {
+        computerChoice = "Rock";
+        return computerChoice;
+    } else if (computerChoice <= 66 && computerChoice>= 33) {
+        computerChoice = "Paper";
+        return computerChoice;
     } else {
-        choice = "Scissors";
-        return choice;
+        computerChoice = "Scissors";
+        return computerChoice;
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt("Rock, Paper, or Scissors?")
+function getHumanChoice(playerChoice) {
+    playerChoice = prompt("Rock, Paper, or Scissors?");
+    if (playerChoice === "Rock" || playerChoice === "rock") {
+        playerChoice = "Rock";
+        return playerChoice;
+    } else if (playerChoice === "Paper" || playerChoice === "paper") {
+        playerChoice = "Paper";
+        return playerChoice;
+    } else if (playerChoice === "Scissors" || playerChoice === "scissors") {
+        playerChoice = "Scissors";
+        return playerChoice;
+    } else {
+        alert("Illegal move! Please try again.");
+    }
 }
