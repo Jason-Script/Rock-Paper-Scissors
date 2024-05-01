@@ -16,14 +16,17 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    let playerChoice = prompt("Rock, Paper, or Scissors?");
-    if (playerChoice.toLowerCase() === "rock"
-    || playerChoice.toLowerCase() === "paper"
-    || playerChoice.toLowerCase() === "scissors") {
-        return playerChoice.toLowerCase();
-    } else {
-        alert("Invalid move! Please try again.");
-    }
+    let playerChoice
+    do {
+        playerChoice = prompt("Rock, Paper, or Scissors?");
+        if (playerChoice.toLowerCase() === "rock"
+        || playerChoice.toLowerCase() === "paper"
+        || playerChoice.toLowerCase() === "scissors") {
+            return playerChoice.toLowerCase();
+        } else {
+            alert("Invalid move! Please try again.");
+        }
+    } while (true);
 }
 
 function playRound() {
