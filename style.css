@@ -11,6 +11,7 @@ body {
 
 h1 {
     font-size: 32pt;
+    margin-bottom: 50px;
 }
 
 .center-container {
@@ -39,6 +40,8 @@ h1 {
 
 .score-counter {
     text-align: center;
+    font-size: 18pt;
+    margin-top: 20px
 }
 
 .move-container {
@@ -84,4 +87,33 @@ h1 {
     .score-counter {
         font-size: 10pt;
     }
+}
+
+@keyframes death {
+    from {
+        opacity: 100%;
+        transform: translateY(0%);
+    } to {
+        opacity: 0%;
+        transform: translateY(200%);
+    }
+    
+}
+
+.loss-animation {
+    animation-name: death;
+    animation-duration: 1s;
+}
+
+@keyframes increment {
+    0% {transform: scale(100%);}
+    25% {transform: scale(115%);}
+    50% {transform: scale(130%);}
+    75% {transform: scale(110%);}
+    100% {transform: scale(115%);}
+}
+
+.increment-score {
+    animation-name: increment;
+    animation-duration: .2s;
 }

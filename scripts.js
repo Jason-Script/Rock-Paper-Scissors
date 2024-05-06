@@ -42,6 +42,14 @@ function playRound(playerChoice) {
     if (computerChoice === playerChoice.value) {
         playerMove.src = `./images/${playerChoice.value}.webp`;
         opponentMove.src = `./images/${computerChoice}.webp`;
+        playerMove.classList.add("loss-animation");
+        opponentMove.classList.add("loss-animation");
+        setTimeout(() => {
+            playerMove.classList.remove("loss-animation");
+            opponentMove.classList.remove("loss-animation");
+            opponentMove.src = `./images/question.webp`
+            playerMove.src = `./images/question.webp`
+        }, 1000);
     } else if 
         (  computerChoice === "rock" && playerChoice.value === "scissors"
         || computerChoice === "paper" && playerChoice.value === "rock"
@@ -52,6 +60,15 @@ function playRound(playerChoice) {
         pScore.textContent = `Player score: ${playerScore}`;
         playerMove.src = `./images/${playerChoice.value}.webp`;
         opponentMove.src = `./images/${computerChoice}.webp`;
+        playerMove.classList.add("loss-animation");
+        setTimeout(() => {
+            playerMove.classList.remove("loss-animation");
+            playerMove.src = `./images/question.webp`
+        }, 1000);
+        oScore.classList.add("increment-score");
+        setTimeout(() => {
+            oScore.classList.remove("increment-score");
+        }, 200);
     } else if (playerChoice == undefined) {
         console.log("You have chosen an invalid move, please try again.");
     } else {
@@ -60,9 +77,17 @@ function playRound(playerChoice) {
         pScore.textContent = `Player score: ${playerScore}`;
         playerMove.src = `./images/${playerChoice.value}.webp`;
         opponentMove.src = `./images/${computerChoice}.webp`;
-
+        opponentMove.classList.add("loss-animation");
+        setTimeout(() => {
+            opponentMove.classList.remove("loss-animation");
+            opponentMove.src = `./images/question.webp`
+        }, 1000);
+        pScore.classList.add("increment-score");
+        setTimeout(() => {
+            pScore.classList.remove("increment-score");
+        }, 200);
     }
-    }
+}
 
 // Initiate a sequence of 5 rounds to be played, incrementing score after each round
 // and declaring a winner at the end.
