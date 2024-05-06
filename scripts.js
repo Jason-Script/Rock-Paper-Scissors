@@ -12,6 +12,12 @@ paper.value = "paper";
 let scissors = document.querySelector("#scissors");
 scissors.value = "scissors";
 
+let pScore = document.querySelector("#player-score");
+let oScore = document.querySelector("#opp-score");
+
+let playerMove = document.querySelector("#player-move");
+let opponentMove = document.querySelector("#opponent-move");
+
 // Generates a random number, and assigns the computer a move depending on the number.
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 100);
@@ -34,21 +40,27 @@ function playRound(playerChoice) {
     console.log("The computer has chosen " + computerChoice);
 
     if (computerChoice === playerChoice.value) {
-        console.log("Draw!");
+        playerMove.src = `./images/${playerChoice.value}.webp`;
+        opponentMove.src = `./images/${computerChoice}.webp`;
     } else if 
         (  computerChoice === "rock" && playerChoice.value === "scissors"
         || computerChoice === "paper" && playerChoice.value === "rock"
         || computerChoice === "scissors" && playerChoice.value === "paper"
         ) {
-        console.log("You lose!")
         computerScore++;
-        console.log("Computer score: " + computerScore);
+        oScore.textContent = `Opponent score: ${computerScore}`;
+        pScore.textContent = `Player score: ${playerScore}`;
+        playerMove.src = `./images/${playerChoice.value}.webp`;
+        opponentMove.src = `./images/${computerChoice}.webp`;
     } else if (playerChoice == undefined) {
         console.log("You have chosen an invalid move, please try again.");
     } else {
-        console.log("You win!");
         playerScore++;
-        console.log("Your score is now: " + playerScore);
+        oScore.textContent = `Opponent score: ${computerScore}`;
+        pScore.textContent = `Player score: ${playerScore}`;
+        playerMove.src = `./images/${playerChoice.value}.webp`;
+        opponentMove.src = `./images/${computerChoice}.webp`;
+
     }
     }
 

@@ -27,7 +27,7 @@ h1 {
     height: 300px;
 }
 
-.player-move, .opponent-move {
+#player-move, #opponent-move {
     width: 250px;
     height: 250px;
     border: solid 2px black;
