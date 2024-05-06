@@ -4,24 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper, Scissors!</title>
-    <script src="scripts.js"></script>
+    <script src="scripts.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Rock, Paper, Scissors</h1>
     <div class="center-container">
-        <img src="" alt="">
+        <div class="player-info">
+            <img class="player-move" src="./images/question.webp" alt="Player move selection">
+            <div class="score-counter">Player Score: </div>
+        </div>
         <div class="vertical-divider"></div>
-        <img src="" alt="">
+        <div class="opponent-info">
+            <img class="opponent-move" src="./images/question.webp" alt="Opponent move selection">
+            <div class="score-counter">Opponent Score: </div>
+        </div>
     </div>
-    <div class="scoreboard">
-        <div>Player Score</div>
-        <div>Opponent Score</div>
-    </div>
-    <div>
-        <img src="" alt="Rock">
-        <img src="" alt="Paper">
-        <img src="" alt="Scissors">
+    <div id="move-selector" class="move-container">
+        <img id="rock" class="move-selector" src="./images/rock.webp" alt="Rock">
+        <img id="paper" class="move-selector" src="./images/paper.webp" alt="Paper">
+        <img id="scissors" class="move-selector" src="./images/scissors.webp" alt="Scissors">
     </div>
 </body>
 </html>

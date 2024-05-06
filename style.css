@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: jaro, Arial, sans-serif;
+    font-weight: 100;
+}
+
+h1 {
+    font-size: 32pt;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    align-items: center;
+    width: 75%;
+    justify-content: space-around;
+}
+
+.vertical-divider {
+    border-left: solid 6px black;
+    height: 300px;
+}
+
+.player-move, .opponent-move {
+    width: 250px;
+    height: 250px;
+    border: solid 2px black;
+    border-radius: 10%;
+}
+
+.score-counter {
+    text-align: center;
+}
+
+.move-container {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    margin-top: 8%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.move-selector {
+    width: 150px;
+    height: 150px;
+    border: solid 2px black;
+    border-radius: 10%;
+}
+
+.move-selector:hover {
+    border-color: rgb(102, 218, 102);
+}

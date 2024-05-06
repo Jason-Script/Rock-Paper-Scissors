@@ -1,6 +1,17 @@
 let playerScore = 0;
 let computerScore = 0;
 
+let moveSelector = document.querySelector("#move-selector");
+
+let rock = document.querySelector("#rock");
+rock.value = "rock";
+
+let paper = document.querySelector("#paper");
+paper.value = "paper";
+
+let scissors = document.querySelector("#scissors");
+scissors.value = "scissors";
+
 // Generates a random number, and assigns the computer a move depending on the number.
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 100);
@@ -16,36 +27,18 @@ function getComputerChoice() {
     }
 }
 
-// Assigns one of 3 moves to the player with a prompt entry.
-// function will repeat if an invalid entry is made.
-function getPlayerChoice() {
-    let playerChoice
-    do {
-        playerChoice = prompt("Rock, Paper, or Scissors?");
-        if (playerChoice.toLowerCase() === "rock"
-        || playerChoice.toLowerCase() === "paper"
-        || playerChoice.toLowerCase() === "scissors") {
-            return playerChoice.toLowerCase();
-        } else {
-            alert("Invalid move! Please try again.");
-        }
-    } while (true);
-}
-
 // Initiate a single round of the game and increment score of round winner.
-function playRound() {
+function playRound(playerChoice) {
     let computerChoice = getComputerChoice();
-    let playerChoice = getPlayerChoice();
     
     console.log("The computer has chosen " + computerChoice);
-    console.log("You have chosen " + playerChoice);
 
-    if (computerChoice === playerChoice) {
+    if (computerChoice === playerChoice.value) {
         console.log("Draw!");
     } else if 
-        (  computerChoice === "rock" && playerChoice === "scissors"
-        || computerChoice === "paper" && playerChoice === "rock"
-        || computerChoice === "scissors" && playerChoice === "paper"
+        (  computerChoice === "rock" && playerChoice.value === "scissors"
+        || computerChoice === "paper" && playerChoice.value === "rock"
+        || computerChoice === "scissors" && playerChoice.value === "paper"
         ) {
         console.log("You lose!")
         computerScore++;
@@ -77,3 +70,13 @@ function playRound() {
             ", the match is a draw!");
     }
 } */
+
+moveSelector.addEventListener("click", (event) => {
+    if (event.target.id == "rock") {
+        playRound(rock);
+    } else if (event.target.id == "paper") {
+        playRound(paper);
+    } else if (event.target.id == "scissors") {
+        playRound(scissors);
+    }
+});
