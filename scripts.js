@@ -61,18 +61,19 @@ function playRound() {
 
 // Initiate a sequence of 5 rounds to be played, incrementing score after each round
 // and declaring a winner at the end.
-function playGame() {
+
+/* function playGame() {
     for (let i = 0; i < 5; i++) {
         playRound();
     }
     if (playerScore > computerScore) {
         console.log("The score is " + playerScore + " to " + computerScore +
-         ", you have won the match!");
+            ", you have won the match!");
     } else if (playerScore < computerScore) {
         console.log("The score is " + playerScore + " to " + computerScore +
-         ", you have lost the match!");
+            ", you have lost the match!");
     } else {
         console.log("The score is " + playerScore + " to " + computerScore +
-         ", the match is a draw!");
+            ", the match is a draw!");
     }
-}
+} */
