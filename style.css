@@ -32,6 +32,9 @@ h1 {
     height: 250px;
     border: solid 2px black;
     border-radius: 10%;
+    max-width: 100%;
+    min-width: 50%;
+    min-height: 50%;
 }
 
 .score-counter {
@@ -43,8 +46,10 @@ h1 {
     flex-direction: row;
     width: 50%;
     margin-top: 8%;
+    gap: 100px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .move-selector {
@@ -56,4 +61,27 @@ h1 {
 
 .move-selector:hover {
     border-color: rgb(102, 218, 102);
+}
+
+@media (width <= 500px) {
+    .move-container {
+        flex-wrap: nowrap;
+        gap: 50px;
+    }
+
+    .move-selector {
+        width: 75px;
+        height: 75px;
+    }
+    .player-move, .opponent-move {
+        width: 100px;
+        height: 100px;
+    }
+    .vertical-divider {
+        height: 150px;
+    }
+
+    .score-counter {
+        font-size: 10pt;
+    }
 }
