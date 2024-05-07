@@ -42,14 +42,18 @@ function playRound(playerChoice) {
     if (computerChoice === playerChoice.value) {
         playerMove.src = `./images/${playerChoice.value}.webp`;
         opponentMove.src = `./images/${computerChoice}.webp`;
-        playerMove.classList.add("loss-animation");
-        opponentMove.classList.add("loss-animation");
+        let roundWon = "draw";
+        declareWinner(roundWon);
+        setTimeout(() => {
+            playerMove.classList.add("loss-animation");
+            opponentMove.classList.add("loss-animation");
+        }, 500);
         setTimeout(() => {
             playerMove.classList.remove("loss-animation");
             opponentMove.classList.remove("loss-animation");
             opponentMove.src = `./images/question.webp`
             playerMove.src = `./images/question.webp`
-        }, 1000);
+        }, 1500);
     } else if 
         (  computerChoice === "rock" && playerChoice.value === "scissors"
         || computerChoice === "paper" && playerChoice.value === "rock"
@@ -60,11 +64,15 @@ function playRound(playerChoice) {
         pScore.textContent = `Player score: ${playerScore}`;
         playerMove.src = `./images/${playerChoice.value}.webp`;
         opponentMove.src = `./images/${computerChoice}.webp`;
-        playerMove.classList.add("loss-animation");
+        let roundWon = "lose";
+        declareWinner(roundWon);
+        setTimeout(() => {
+            playerMove.classList.add("loss-animation");
+        }, 500)
         setTimeout(() => {
             playerMove.classList.remove("loss-animation");
             playerMove.src = `./images/question.webp`
-        }, 1000);
+        }, 1500);
         oScore.classList.add("increment-score");
         setTimeout(() => {
             oScore.classList.remove("increment-score");
@@ -77,11 +85,15 @@ function playRound(playerChoice) {
         pScore.textContent = `Player score: ${playerScore}`;
         playerMove.src = `./images/${playerChoice.value}.webp`;
         opponentMove.src = `./images/${computerChoice}.webp`;
-        opponentMove.classList.add("loss-animation");
+        let roundWon = "win";
+        declareWinner(roundWon);
+        setTimeout(() => {
+            opponentMove.classList.add("loss-animation");
+        }, 500)
         setTimeout(() => {
             opponentMove.classList.remove("loss-animation");
             opponentMove.src = `./images/question.webp`
-        }, 1000);
+        }, 1500);
         pScore.classList.add("increment-score");
         setTimeout(() => {
             pScore.classList.remove("increment-score");
@@ -117,3 +129,13 @@ moveSelector.addEventListener("click", (event) => {
         playRound(scissors);
     }
 });
+
+function declareWinner(roundWon) {
+    if (roundWon == "win") {
+        document.getElementById("winner-declaration").textContent = "You have won the round!";
+    } else if (roundWon == "lose") {
+        document.getElementById("winner-declaration").textContent = "You have lost the round!";
+    } else if (roundWon == "draw") {
+        document.getElementById("winner-declaration").textContent = "Draw!";
+    }
+}
