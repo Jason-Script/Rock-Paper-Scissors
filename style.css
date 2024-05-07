@@ -92,7 +92,11 @@ h1 {
 
     .score-counter {
         font-size: 10pt;
+        width: 100%;
+        text-wrap: nowrap;
     }
+
+
 }
 
 @keyframes death {
